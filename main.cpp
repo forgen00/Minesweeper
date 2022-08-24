@@ -41,7 +41,7 @@ int main() {
 
         for (int i = 1; i <= 10; ++i) {
             for (int j = 1; j <= 10; ++j) {
-                putimage(i * w, j * w, img[10], COPY_PUT);
+                putimage(i * w, j * w, img[gridView[i][j]], COPY_PUT);
             }
         }
 
