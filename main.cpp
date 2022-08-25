@@ -9,14 +9,14 @@ void read_images();
 void free_images();
 
 void read_images() {
-    for (int i = 0; i <= 12; ++i) {
+    for (int i = 0; i < 12; ++i) {
         std::string fileName = "img/" + std::to_string(i) + ".bmp";
         img[i] = loadBMP(fileName.c_str());
     }
 }
 
 void free_images() {
-    for (int i = 0; i <= 12; ++i) {
+    for (int i = 0; i < 12; ++i) {
         freeimage(img[i]);
     }
 }
@@ -49,6 +49,7 @@ int main() {
         delay(30);
         if (kbhit()) break; 
     }
+    free_images();
     closegraph();
     return 0;
 }
