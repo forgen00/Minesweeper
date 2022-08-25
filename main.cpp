@@ -49,7 +49,6 @@ int main() {
         delay(30);
         if (kbhit()) break; 
     }
-    freeimage(img);
     closegraph();
     return 0;
 }
