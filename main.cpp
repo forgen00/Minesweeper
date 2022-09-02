@@ -88,6 +88,7 @@ int main() {
         delay(30);
         if (kbhit()) break;
     }
+    free_images();
     closegraph();
     return 0;
 }
