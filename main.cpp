@@ -43,41 +43,23 @@ int main() {
         }
     }
 
-    for (int i = 1; i <= 10; i++)
-        for (int j = 1; j <= 10; j++)
-        {
+    std::pair<int, int> delta[8] = { {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0} };
+    for (int i = 1; i <= 10; i++) {
+        for (int j = 1; j <= 10; j++) {
             int n = 0;
-            if (gridLogic[i][j] == 9) {
-                continue;
+            for (int d = 0; d < 8; ++d) {
+                int dx = i + delta[d].first;
+                int dy = j + delta[d].second;
+                if (gridLogic[dx][dy] == 9) {
+                    ++n;
+                }
             }
-            if (gridLogic[i + 1][j] == 9) {
-                n++;
+            if (gridLogic[i][j] != 9) {
+                gridLogic[i][j] = n;
             }
-            if (gridLogic[i][j + 1] == 9) {
-                n++;
-            }
-            if (gridLogic[i - 1][j] == 9) {
-                n++;
-            }
-            if (gridLogic[i][j - 1] == 9) {
-                n++;
-            }
-            if (gridLogic[i + 1][j + 1] == 9) {
-                n++;
-            }
-            if (gridLogic[i - 1][j - 1] == 9) {
-                n++;
-            }
-            if (gridLogic[i - 1][j + 1] == 9) {
-                n++;
-            }
-            if (gridLogic[i + 1][j - 1] == 9) {
-                n++;
-            }
-            gridLogic[i][j] = n;
         }
-
-
+    }
+    
     while (1) {
         setbkcolor(BLACK);
         clearviewport();
