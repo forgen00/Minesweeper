@@ -8,13 +8,12 @@ const int WIDTH = 400, HEIGHT = 400;
 
 int main() {
     srand(time(0));
-    initwindow(WIDTH, HEIGHT, "Minesweeper", 0, 0, true);
+    initwindow(WIDTH, HEIGHT, "Minesweeper", 0, 0);
     read_images(img);
 
     int w = 32;
     int gridLogic[12][12];
     int gridView[12][12];
-    int t = 0;
 
     for (int i = 1; i <= 10; ++i) {
         for (int j = 1; j <= 10; ++j) {
@@ -48,7 +47,6 @@ int main() {
     while (1) {
         setbkcolor(BLACK);
         clearviewport();
-        ++t;
 
         int x = mousex() / w;
         int y = mousey() / w;
